@@ -20,6 +20,11 @@ main:
     ldr r0, address_of_prompt
     bl printf
 
+    ldr lr, address_of_return        /* lr ← &address_of_return */
+    ldr lr, [lr]                     /* lr ← *lr */
+    bx lr                            /* return from main using lr */
+
+/*
     mov r1, #1
     mov r2, #1
     mov r3, #0
@@ -40,6 +45,7 @@ fib:
 
 done:
     bx lr
+*/
 
 address_of_prompt: .word prompt
 address_of_return: .word return
