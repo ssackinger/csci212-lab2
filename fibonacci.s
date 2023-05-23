@@ -4,7 +4,7 @@
 prompt: .asciz "Enter Fibonacci term:\t"
 
 .balign 4
-format: .asciz "Term %d in the Fibonacci sequence is:\t"
+format: .asciz "Term %d in the Fibonacci sequence is:\t %d\n"
 
 .balign 4
 scan_pattern: .asciz "%d"
@@ -54,7 +54,8 @@ fib:
 done:
 
     ldr r0, address_of_format        /* r0 ← &message2 */
-    mov r1, r3
+    mov r1, r9
+    mov r2, r3
     @ldr r1, address_of_number_read   /* r1 ← &number_read */
     @ldr r1, [r1]                     /* r1 ← *r1 */
     bl printf                        /* call to printf */
