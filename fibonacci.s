@@ -49,7 +49,7 @@ fib:
     mov r1, r2
     mov r2, r3
     add r8, r8, #1
-    jmp fib
+    b fib
 
 done:
     ldr r0, address_of_format        /* r0 ← &message2 */
