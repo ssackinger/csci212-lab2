@@ -1,3 +1,11 @@
+.data
+
+.balign 4
+prompt: .asciz "Enter Fibonacci term:\t"
+
+.balign 4
+format: .asciz "\nTerm %d in the Fibonacci sequence is\t"
+
 .balign 4
 return: .word 0
 
@@ -35,14 +43,6 @@ done:
 
 address_of_prompt: .word prompt
 address_of_return: .word return
-
-format:
-    .asciz "\nTerm "
-    .asciz "%d"
-    .asciz " in the Fibonacci sequence is\t"
-
-prompt:
-    .asciz "Enter Fibonacci term:\t"
 
 
 .global printf
