@@ -1,9 +1,16 @@
+.balign 4
+return: .word 0
+
 .text
+
 .global main
 
 main:
+    ldr r1, address_of_return
+    str lr, [r1]
+
     ldr r0, address_of_prompt
-    bl puts
+    bl printf
 
     mov r1, #1
     mov r2, #1
@@ -27,6 +34,7 @@ done:
     bx lr
 
 address_of_prompt: .word prompt
+address_of_return: .word return
 
 format:
     .asciz "\nTerm "
@@ -37,5 +45,6 @@ prompt:
     .asciz "Enter Fibonacci term:\t"
 
 
-.global puts
+.global printf
+.global scanf
 
