@@ -65,7 +65,7 @@ done:
 address_of_prompt: .word prompt
 address_of_scan_pattern: .word scan_pattern
 address_of_number_read: .word number_read
-address_of_prompt: .word prompt
+address_of_format: .word format
 address_of_return: .word return
 
 
