@@ -7,7 +7,7 @@ prompt: .asciz "Enter Fibonacci term:\t"
 format: .asciz "\nTerm %d in the Fibonacci sequence is\t"
 
 .balign 4
-scan_patter: .asciz "%d"
+scan_pattern: .asciz "%d"
 
 .balign 4
 number_read: .word 0
@@ -58,7 +58,7 @@ done:
 */
 
 address_of_prompt: .word prompt
-address_of_scan_patter: .word scan_pattern
+address_of_scan_pattern: .word scan_pattern
 address_of_number_read: .word number_read
 address_of_return: .word return
 
