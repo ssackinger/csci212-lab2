@@ -5,7 +5,7 @@ mov r1, #0
 mov r2, #1
 mov r3, #0
 mov r0, #0
-mov r9, #14 @arbitrary input for testing
+mov r9, #4 @arbitrary input for testing
 mov r8, #0
 
 fib:
