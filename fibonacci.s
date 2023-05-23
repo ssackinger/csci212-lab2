@@ -2,6 +2,9 @@
 .global main
 
 main:
+    ldr r0, prompt
+    bl puts
+
     mov r1, #1
     mov r2, #1
     mov r3, #0
@@ -30,3 +33,7 @@ format:
 
 prompt:
     .asciz "Enter Fibonacci term:\t"
+
+
+.global puts
+
