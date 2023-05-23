@@ -2,7 +2,7 @@
 .global main
 
 main:
-    ldr r0, prompt
+    ldr r0, address_of_prompt
     bl puts
 
     mov r1, #1
@@ -25,6 +25,8 @@ fib:
 
 done:
     bx lr
+
+address_of_prompt: .word prompt
 
 format:
     .asciz "\nTerm "
