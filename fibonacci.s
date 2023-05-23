@@ -4,7 +4,7 @@
 prompt: .asciz "Enter Fibonacci term:\t"
 
 .balign 4
-format: .asciz "\nTerm %d in the Fibonacci sequence is\t"
+format: .asciz "Term %d in the Fibonacci sequence is:\t"
 
 .balign 4
 scan_pattern: .asciz "%d"
@@ -19,6 +19,8 @@ return: .word 0
 
 .global main
 
+
+
 main:
     ldr r1, address_of_return
     str lr, [r1]
@@ -30,21 +32,12 @@ main:
     ldr r1, address_of_number_read   /* r1 ← &number_read */
     bl scanf                         /* call to scanf */
 
-    ldr r0, address_of_format        /* r0 ← &message2 */
-    ldr r1, address_of_number_read   /* r1 ← &number_read */
-    ldr r1, [r1]                     /* r1 ← *r1 */
-    bl printf                        /* call to printf */
-
-    ldr lr, address_of_return        /* lr ← &address_of_return */
-    ldr lr, [lr]                     /* lr ← *lr */
-    bx lr                            /* return from main using lr */
-
-/*
     mov r1, #1
     mov r2, #1
     mov r3, #0
     mov r0, #0
-    mov r9, #4 @arbitrary input for testing
+    ldr r9, address_of_number_read @arbitrary input for testing
+    ldr r9, [r9]
     mov r8, #0
 
 fib:
@@ -56,11 +49,18 @@ fib:
     mov r1, r2
     mov r2, r3
     add r8, r8, #1
-    blt fib
+    j fib
 
 done:
-    bx lr
-*/
+    ldr r0, address_of_format        /* r0 ← &message2 */
+    ldr r1, address_of_number_read   /* r1 ← &number_read */
+    ldr r1, [r1]                     /* r1 ← *r1 */
+    bl printf                        /* call to printf */
+
+    ldr lr, address_of_return        /* lr ← &address_of_return */
+    ldr lr, [lr]                     /* lr ← *lr */
+    bx lr                            /* return from main using lr */
+
 
 address_of_prompt: .word prompt
 address_of_scan_pattern: .word scan_pattern
