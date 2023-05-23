@@ -38,7 +38,7 @@ main:
     mov r0, #0
     ldr r9, address_of_number_read @arbitrary input for testing
     ldr r9, [r9]
-    mov r8, #0
+    mov r8, #2
 
 fib:
     cmp r8, r9
