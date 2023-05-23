@@ -30,6 +30,11 @@ main:
     ldr r1, address_of_number_read   /* r1 ← &number_read */
     bl scanf                         /* call to scanf */
 
+    ldr r0, address_of_format        /* r0 ← &message2 */
+    ldr r1, address_of_number_read   /* r1 ← &number_read */
+    ldr r1, [r1]                     /* r1 ← *r1 */
+    bl printf                        /* call to printf */
+
     ldr lr, address_of_return        /* lr ← &address_of_return */
     ldr lr, [lr]                     /* lr ← *lr */
     bx lr                            /* return from main using lr */
@@ -60,6 +65,7 @@ done:
 address_of_prompt: .word prompt
 address_of_scan_pattern: .word scan_pattern
 address_of_number_read: .word number_read
+address_of_prompt: .word prompt
 address_of_return: .word return
 
 
