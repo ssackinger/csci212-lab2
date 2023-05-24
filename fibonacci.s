@@ -44,9 +44,6 @@ fibonacci_done:
 main:
     push {lr}
 
-    ldr r1, address_of_return
-    str lr, [r1]
-
     ldr r0, address_of_prompt
     bl printf
 
