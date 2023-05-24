@@ -15,7 +15,7 @@ number_read: .word 0
 .text
 
 fibonacci:
-    push {lr, r0, r1, r2, r3, r8, r9}
+    push {r9, r8, r3, r2, r1, lr}
 
     mov r9, r0          @load passed in value from r0
     mov r1, #1
@@ -36,7 +36,7 @@ fibonacci_loop:
     b fibonacci_loop
 
 fibonacci_done:
-    pop {lr, r0, r1, r2, r3, r8, r9}
+    pop {r9, r8, r3, r2, r1, lr}
     bx lr
 
 
@@ -54,8 +54,8 @@ main:
     ldr r1, address_of_number_read   /* r1 ← &number_read */
     bl scanf                         /* call to scanf */
 
-    mov r0, address_of_number_read
-    mov r0, [r0]
+    ldr r0, address_of_number_read
+    ldr r0, [r0]
 
     bl fibonacci
 
