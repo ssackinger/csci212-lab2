@@ -31,7 +31,7 @@ unsigned_divide:
     .Ldivide_loop:
         add r0, r0, #1          @add 1 to quotient
         sub r1, r1, r2          @subtract r2 from r1 once
-    .Ldivide_check
+    .Ldivide_check:
         cmp r1, r2
         bhs .Ldivide_loop
 
