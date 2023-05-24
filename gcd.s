@@ -27,13 +27,13 @@ unsigned_divide:
 
     mov r0, #0
 
-    b divide_check
-    .divide_loop:
+    b .Ldivide_check
+    .Ldivide_loop:
         add r0, r0, #1          @add 1 to quotient
         sub r1, r1, r2          @subtract r2 from r1 once
-    .divide_check
+    .Ldivide_check
         cmp r1, r2
-        bhs .divide_loop
+        bhs .Ldivide_loop
 
     pop {r2}
     bx lr
