@@ -114,3 +114,4 @@ address_of_format: .word format
 
 .global printf
 .global scanf
+
