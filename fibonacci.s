@@ -15,7 +15,7 @@ number_read: .word 0
 .text
 
 fibonacci:
-    push {r9, r8, r1-r3, lr}
+    push {r1-r3, r8, r9, lr}
 
     mov r9, r0          @load passed in value from r0
     mov r1, #1
@@ -36,7 +36,7 @@ fibonacci_loop:
     b fibonacci_loop
 
 fibonacci_done:
-    pop {r9, r8, r1-r3, lr}
+    pop {r1-r3, r8, r9, lr}
     bx lr
 
 
