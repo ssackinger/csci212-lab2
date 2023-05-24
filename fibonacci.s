@@ -36,6 +36,7 @@ fibonacci_loop:
     b fibonacci_loop
 
 fibonacci_done:
+    mov r0, r3
     pop {r1-r3, r8, r9, lr}
     bx lr
 
