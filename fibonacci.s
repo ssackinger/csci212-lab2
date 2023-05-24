@@ -59,7 +59,6 @@ main:
     mov r2, r0                      @load return value into r2 before address_of_format changes it
 
     ldr r0, address_of_format        /* r0 ← &message2 */
-    mov r1, r9
 
     @ldr r1, address_of_number_read   /* r1 ← &number_read */
     @ldr r1, [r1]                     /* r1 ← *r1 */
