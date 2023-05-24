@@ -21,14 +21,12 @@ fibonacci:
     mov r1, #1
     mov r2, #1
     mov r3, #0
-    mov r0, #0
     mov r8, #2
 
 fibonacci_loop:
     cmp r8, r9
     bge fibonacci_done
 
-    mov r0, r1
     add r3, r1, r2
     mov r1, r2
     mov r2, r3
